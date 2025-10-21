@@ -8,7 +8,7 @@ dspace-angular
 Overview
 --------
 
-DSpace open source software is a turnkey repository application used by more than
+DSpace SERNAGEOMIN open source software is a turnkey repository application used by more than
 2,000 organizations and institutions worldwide to provide durable access to digital resources.
 For more information, visit http://www.dspace.org/
 
