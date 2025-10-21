@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "gobCL-Bold";
+    src: url("/gob/gobCL-Bold.eot");
+    src: url("/gob/gobCL-Bold.eot?#iefix") format("embedded-opentype"),
+         url("/gob/gobCL-Bold.woff2") format("woff2"),
+         url("/gob/gobCL-Bold.woff") format("woff"),
+        url("/gob/gobCL-Bold.svg#gobCL-Bold") format("svg");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FD;
+}
+@font-face {
+    font-family: "gobCL-Light";
+    src: url("/gob/gobCL-Light.eot");
+    src: url("/gob/gobCL-Light.eot?#iefix") format("embedded-opentype"),
+         url("/gob/gobCL-Light.woff2") format("woff2"), 
+         url("/gob/gobCL-Light.woff") format("woff"),
+        url("//gob/gobCL-Light.svg#gobCL-Light") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FD;
+}
+@font-face {
+    font-family: "gobCL";
+    src: url("/gob/gobCL.eot");
+    src: url("/gob/gobCL.eot?#iefix") format("embedded-opentype"),
+         url("/gob/gobCL.woff2") format("woff2"), 
+         url("/gob/gobCL.woff") format("woff"), 
+         url("/gob/gobCL.svg#gobCL") format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FD;
+}
+@font-face {
+    font-family: "sernageomin";
+    src: url("/geo/sernageomin.eot");
+    src: url("/geo/sernageomin.eot?#iefix") format("embedded-opentype"), 
+         url("/geo/sernageomin.woff") format("woff"), 
+         url("/geo/sernageomin.ttf") format("truetype"),
+         url("/geo/sernageomin.svg#sernageomin") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}

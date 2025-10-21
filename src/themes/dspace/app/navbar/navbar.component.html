@@ -1,0 +1,27 @@
+<ng-container *ngIf="(isMobile$ | async) && (isAuthenticated$ | async)">
+  <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
+</ng-container>
+<div class="navbar-nav flex-shrink-1 h-100 align-items-md-stretch gapx-3" role="menubar" id="main-site-navigation" [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'">
+  
+  <!-- ENLACES SERNAGEOMIN  -->
+  <ul class="navbar-nav navbar-navigation me-auto mb-2 mb-lg-0 h-100 d-flex align-items-center justify-content-end">
+    <li class="c-top__item">
+      <a href="http://www.sernageomin.cl/" class="c-top__link u-uppercase" target="_blank">Sernageomin</a>
+    </li>
+    <li class="c-top__item">
+      <a href="https://catalogobiblioteca.sernageomin.cl/" class="c-top__link" target="_blank">Biblioteca</a>
+    </li>
+    <li class="c-top__item">
+      <a routerLink="/info/acerca" class="c-top__link">Acerca de este repositorio</a>
+    </li>
+    <li class="c-top__item">
+      <a routerLink="/info/condiciones" class="c-top__link">Condiciones de Uso</a>
+    </li>
+    <ng-container *ngFor="let section of (sections | async)">
+      <li class="c-top__item">
+        <ng-container
+          *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</div>

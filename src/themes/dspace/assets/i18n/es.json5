@@ -1,0 +1,242 @@
+{
+  // "search.filters.filter.editor.head": "Editor",
+  "search.filters.filter.editor.head": "Editor",
+  
+  // "search.filters.filter.editor.placeholder": "Editor",
+  "search.filters.filter.editor.placeholder": "Editor",
+
+  // "search.filters.filter.editor.label": "Búsqueda de editores",
+  "search.filters.filter.editor.label": "Búsqueda de editores",
+
+  // "search.filters.applied.f.editor": "Editor",
+  "search.filters.applied.f.editor": "Editor",
+
+  // "search.filters.filter.escala.head": "Escala",
+  "search.filters.filter.escala.head": "Escala",
+  
+  // "search.filters.filter.escala.placeholder": "Escala",
+  "search.filters.filter.escala.placeholder": "Escala",
+
+  // "search.filters.filter.escala.label": "Búsqueda por escalas",
+  "search.filters.filter.escala.label": "Búsqueda por escalas",
+
+  // "search.filters.applied.f.escala": "Escala",
+  "search.filters.applied.f.escala": "Escala",
+
+  // "search.filters.filter.idioma.head": "Idioma",
+  "search.filters.filter.idioma.head": "Idioma",
+  
+  // "search.filters.filter.idioma.placeholder": "Idioma",
+  "search.filters.filter.idioma.placeholder": "Idioma",
+
+  // "search.filters.filter.idioma.label": "Búsqueda por idioma",
+  "search.filters.filter.idioma.label": "Búsqueda por idioma",
+
+  // "search.filters.applied.f.idioma": "Idioma",
+  "search.filters.applied.f.idioma": "Idioma",
+
+  // "search.filters.filter.region.head": "Región",
+  "search.filters.filter.region.head": "Región",
+  
+  // "search.filters.filter.region.placeholder": "Región",
+  "search.filters.filter.region.placeholder": "Región",
+
+  // "search.filters.filter.region.label": "Búsqueda por región",
+  "search.filters.filter.region.label": "Búsqueda por región",
+
+  // "search.filters.applied.f.region": "Región",
+  "search.filters.applied.f.region": "Región",
+
+  // "search.filters.filter.tituloserie.head": "Título de la Serie",
+  "search.filters.filter.tituloserie.head": "Título de la Serie",
+  
+  // "search.filters.filter.tituloserie.placeholder": "Título de la Serie",
+  "search.filters.filter.tituloserie.placeholder": "Título de la Serie",
+
+  // "search.filters.filter.tituloserie.label": "Búsqueda por título de la serie",
+  "search.filters.filter.tituloserie.label": "Búsqueda por título de la serie",
+
+  // "search.filters.applied.f.tituloserie": "Título de la Serie",
+  "search.filters.applied.f.tituloserie": "Título de la Serie",
+
+  // "search.filters.filter.pais.head": "País",
+  "search.filters.filter.pais.head": "País",
+  
+  // "search.filters.filter.pais.placeholder": "País",
+  "search.filters.filter.pais.placeholder": "País",
+
+  // "search.filters.filter.pais.label": "Búsqueda por país",
+  "search.filters.filter.pais.label": "Búsqueda por país",
+
+  // "search.filters.applied.f.pais": "País",
+  "search.filters.applied.f.pais": "País",
+
+  // "search.filters.filter.provincia.head": "Provincia",
+  "search.filters.filter.provincia.head": "Provincia",
+  
+  // "search.filters.filter.provincia.placeholder": "Provincia",
+  "search.filters.filter.provincia.placeholder": "Provincia",
+
+  // "search.filters.filter.provincia.label": "Búsqueda por provincia",
+  "search.filters.filter.provincia.label": "Búsqueda por provincia",
+
+  // "search.filters.applied.f.provincia": "Provincia",
+  "search.filters.applied.f.provincia": "Provincia",
+
+  // "search.filters.filter.comuna.head": "Comuna",
+  "search.filters.filter.comuna.head": "Comuna",
+  
+  // "search.filters.filter.comuna.placeholder": "Comuna",
+  "search.filters.filter.comuna.placeholder": "Comuna",
+
+  // "search.filters.filter.comuna.label": "Búsqueda por comuna",
+  "search.filters.filter.comuna.label": "Búsqueda por comuna",
+
+  // "search.filters.applied.f.comuna": "Comuna",
+  "search.filters.applied.f.comuna": "Comuna",
+
+  // "search.filters.filter.lugarespecifico.head": "Lugar específico",
+  "search.filters.filter.lugarespecifico.head": "Lugar específico",
+  
+  // "search.filters.filter.lugarespecifico.placeholder": "Lugar específico",
+  "search.filters.filter.lugarespecifico.placeholder": "Lugar específico",
+
+  // "search.filters.filter.lugarespecifico.label": "Búsqueda por lugar específico",
+  "search.filters.filter.lugarespecifico.label": "Búsqueda por lugar específico",
+
+  // "search.filters.applied.f.lugarespecifico": "Lugar específico",
+  "search.filters.applied.f.lugarespecifico": "Lugar específico",
+
+  // "search.filters.filter.accidentegeografico.head": "Accidente geográfico",
+  "search.filters.filter.accidentegeografico.head": "Accidente geográfico",
+  
+  // "search.filters.filter.accidentegeografico.placeholder": "Accidente geográfico",
+  "search.filters.filter.accidentegeografico.placeholder": "Accidente geográfico",
+
+  // "search.filters.filter.accidentegeografico.label": "Búsqueda por accidente geográfico",
+  "search.filters.filter.accidentegeografico.label": "Búsqueda por accidente geográfico",
+
+  // "search.filters.applied.f.accidentegeografico": "Accidente geográfico",
+  "search.filters.applied.f.accidentegeografico": "Accidente geográfico",
+
+  // "search.filters.filter.nombrevolcan.head": "Nombre volcán",
+  "search.filters.filter.nombrevolcan.head": "Nombre volcán",
+  
+  // "search.filters.filter.nombrevolcan.placeholder": "Nombre volcán",
+  "search.filters.filter.nombrevolcan.placeholder": "Nombre volcán",
+
+  // "search.filters.filter.nombrevolcan.label": "Búsqueda por nombre de volcán",
+  "search.filters.filter.nombrevolcan.label": "Búsqueda por nombre de volcán",
+
+  // "search.filters.applied.f.nombrevolcan": "Nombre volcán",
+  "search.filters.applied.f.nombrevolcan": "Nombre volcán",
+
+  // "search.filters.filter.cuenca.head": "Cuenca",
+  "search.filters.filter.cuenca.head": "Cuenca",
+  
+  // "search.filters.filter.cuenca.placeholder": "Cuenca",
+  "search.filters.filter.cuenca.placeholder": "Cuenca",
+
+  // "search.filters.filter.cuenca.label": "Búsqueda por cuenca",
+  "search.filters.filter.cuenca.label": "Búsqueda por cuenca",
+
+  // "search.filters.applied.f.cuenca": "Cuenca",
+  "search.filters.applied.f.cuenca": "Cuenca",
+
+  // "search.filters.filter.subcuenca.head": "Subcuenca",
+  "search.filters.filter.subcuenca.head": "Subcuenca",
+  
+  // "search.filters.filter.subcuenca.placeholder": "Subcuenca",
+  "search.filters.filter.subcuenca.placeholder": "Subcuenca",
+
+  // "search.filters.filter.subcuenca.label": "Búsqueda por subcuenca",
+  "search.filters.filter.subcuenca.label": "Búsqueda por subcuenca",
+
+  // "search.filters.applied.f.subcuenca": "Subcuenca",
+  "search.filters.applied.f.subcuenca": "Subcuenca",
+
+  // "search.filters.applied.f.volnodate": "Año, Volumen y Número",
+  "search.filters.applied.f.volnodate": "Año, Volumen y Número",
+
+  // "search.filters.filter.volnodate.head": "Año, Volumen y Número",
+  "search.filters.filter.volnodate.head": "Año, Volumen y Número",
+
+  // "search.filters.filter.volnodate.label": "Año, Volumen y Número",
+  "search.filters.filter.volnodate.label": "Año, Volumen y Número",
+
+  // "search.filters.filter.material.head": "Tipo de Material",
+  "search.filters.filter.material.head": "Tipo de Material",
+  
+  // "search.filters.filter.material.placeholder": "Tipo de Material",
+  "search.filters.filter.material.placeholder": "Tipo de Material",
+
+  // "search.filters.filter.material.label": "Búsqueda por Tipo de Material",
+  "search.filters.filter.material.label": "Búsqueda por Tipo de Material",
+
+  // "search.filters.applied.f.material": "Tipo de Material",
+  "search.filters.applied.f.material": "Tipo de Material",
+
+  // "search.filters.filter.volnodate.placeholder": "Año, Volumen y Número",
+  "search.filters.filter.volnodate.placeholder": "Año, Volumen y Número",
+
+  // "info.acerca.breadcrumbs": "Acerca de",
+  "info.acerca.breadcrumbs": "Acerca de",
+
+  // "info.acerca.breadcrumbs": "Condiciones de Uso",
+  "info.condiciones.breadcrumbs": "Condiciones de Uso",
+
+  // "search.filters.filter.numeroserie.head": "Número de la Serie",
+  "search.filters.filter.numeroserie.head": "Número de la Serie",
+  
+  // "search.filters.filter.numeroserie.placeholder": "Número de la Serie",
+  "search.filters.filter.numeroserie.placeholder": "Número de la Serie",
+
+  // "search.filters.filter.numeroserie.label": "Número de la Serie",
+  "search.filters.filter.numeroserie.label": "Número de la Serie",
+
+  // "search.filters.applied.f.numeroserie": "Número de la Serie",
+  "search.filters.applied.f.numeroserie": "Número de la Serie",
+
+  // "search.filters.filter.institucional.head": "Autor Institucional",
+  "search.filters.filter.institucional.head": "Autor Institucional",
+  
+  // "search.filters.filter.institucional.placeholder": "Autor Institucional",
+  "search.filters.filter.institucional.placeholder": "Autor Institucional",
+
+  // "search.filters.filter.institucional.label": "Autor Institucional",
+  "search.filters.filter.institucional.label": "Autor Institucional",
+
+  // "search.filters.applied.f.institucional": "Autor Institucional",
+  "search.filters.applied.f.institucional": "Autor Institucional",
+
+  // "browse.comcol.by.tituloserie": "Título de la Serie",
+  "browse.comcol.by.tituloserie": "Título de la Serie",
+
+  // "browse.comcol.by.volnodate": "Año, Volumen y Número",
+  "browse.comcol.by.volnodate": "Año, Volumen y Número",
+
+  // "browse.comcol.by.numeroserie": "Número de la Serie",
+  "browse.comcol.by.numeroserie": "Número de la Serie",
+
+  // "sorting.dc.relation.ispartofno.ASC": "Numero de Serie Ascendente",
+  "sorting.dc.relation.ispartofno.ASC": "Numero de Serie Ascendente",
+
+  // "menu.section.browse_global_by_tituloserie": "Título de la Serie",
+  "menu.section.browse_global_by_tituloserie": "Título de la Serie",
+
+  // "menu.section.browse_global_by_volnodate": "Año, Volumen y Número",
+  "menu.section.browse_global_by_volnodate": "Año, Volumen y Número",
+
+  // "menu.section.browse_global_by_numeroserie": "Número de la Serie",
+  "menu.section.browse_global_by_numeroserie": "Número de la Serie",
+
+  // "browse.metadata.tituloserie": "Título de la Serie",
+  "browse.metadata.tituloserie": "Título de la Serie",
+
+  // "browse.metadata.volnodate": "Año, Volumen y Número",
+  "browse.metadata.volnodate": "Año, Volumen y Número",
+
+  // "browse.metadata.numeroserie": "Número de la Serie",
+  "browse.metadata.numeroserie": "Número de la Serie",
+  
+}
