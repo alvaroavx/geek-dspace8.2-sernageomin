@@ -1,6 +1,7 @@
 :host {
   #main-site-header {
     min-height: var(--ds-header-height);
+    padding: 0;
 
     @include media-breakpoint-up(md) {
       height: var(--ds-header-height);
@@ -11,6 +12,10 @@
     &-container {
       min-height: var(--ds-header-height);
     }
+  }
+
+  #main-site-header-container {
+    padding: 0;
   }
 
   img#header-logo {

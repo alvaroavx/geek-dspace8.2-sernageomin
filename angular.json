@@ -40,7 +40,8 @@
             "aot": true,
             "assets": [
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/themes/dspace/assets"
             ],
             "styles": [
               "src/styles/startup.scss",

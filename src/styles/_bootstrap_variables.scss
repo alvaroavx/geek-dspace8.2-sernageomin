@@ -70,13 +70,13 @@ $ds-header-navbar-border-bottom-color: #ced4da !default;
 
 $ds-header-bg: #fff !default;
 $ds-header-icon-color: #241513 !default;
-$ds-header-icon-color-hover: darken($ds-navbar-link-color, 15%) !default;
+$ds-header-icon-color-hover: darken(#241513, 15%) !default;
 
 $ds-navbar-bg: #fff !default;
 $ds-navbar-dropdown-bg: #fff !default;
 $ds-expandable-navbar-bg: #fff !default;
 $ds-navbar-link-color: #241513 !default;
-$ds-navbar-link-color-hover: darken($ds-navbar-link-color, 15%) !default;
+$ds-navbar-link-color-hover: darken(#241513, 15%) !default;
 
 $ds-slider-color: darken(#94BA65, 17%) !default;
 $ds-slider-handle-color: darken(#2B4E72, 17%) !default;

@@ -1,0 +1,24 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" autocomplete="on" class="c-search__form">
+  <input
+    #searchInput
+    aria-label="Buscar"
+    name="query"
+    formControlName="query"
+    type="text"
+    placeholder="Busca en todo el repositorio"
+    class="c-search__input">
+
+  <select formControlName="filter" class="c-search__select" id="filter" name="filter">
+    <option value="">Todos los campos</option>
+    <option value="author">Autor</option>
+    <option value="subject">Materia</option>
+    <option value="dateIssued">Fecha</option>
+    <option value="region">Región</option>
+    <option value="title">Título</option>
+  </select>
+
+  <button type="submit" class="c-search__button">
+    <span class="c-search__icon"><i class="ico-search"></i></span>
+    <span>Buscar</span>
+  </button>
+</form>

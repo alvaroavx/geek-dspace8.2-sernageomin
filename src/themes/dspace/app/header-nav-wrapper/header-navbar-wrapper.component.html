@@ -3,7 +3,7 @@
   <!-- Collapsible navbar (mobile only) -->
   <div *ngIf="(isMobile$ | async)" id="mobile-navbar-wrapper" [@slideMobileNav]="(isNavBarCollapsed$ | async) ? 'collapsed' : 'expanded'">
     <nav class="px-3" id="collapsible-mobile-navbar" [attr.aria-hidden]="(isNavBarCollapsed$ | async)" [attr.aria-label]="'nav.main.description' | translate">
-      <ds-navbar></ds-navbar>
+      <ds-navbar class="d-flex align-items-center"></ds-navbar>
     </nav>
   </div>
 </div>

@@ -20,40 +20,6 @@
   font-weight: 400;
 }
 
-/* LI contenedor de cada enlace */
-.c-top__item {
-  display: flex;
-  align-items: center;
-}
-
-/* Links */
-.c-top__item a,
-.ds-menu-item {
-  color: #241513;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  position: relative;
-}
-
-/* Subrayado animado al hover */
-.c-top__item a::after,
-.ds-menu-item::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #00457c;
-  transition: width 0.3s ease;
-}
-
-.c-top__item a:hover::after,
-.ds-menu-item:hover::after {
-  width: 100%;
-}
-
 /* Alineación y espaciado dentro del nav */
 .navbar-navigation.me-auto {
   margin-left: auto;
@@ -65,7 +31,6 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 0 1rem;
 }
 
 /* Estilo responsive */
@@ -79,4 +44,9 @@
   .c-top__link {
     font-size: 0.9rem;
   }
+}
+
+// SERNAGEOMIN
+#banner-principal {
+  height: 400px;
 }

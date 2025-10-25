@@ -1,5 +1,5 @@
 <ds-home-coar></ds-home-coar>
-<ds-home-news></ds-home-news>
+<!--<ds-home-news></ds-home-news>-->
 <ds-configuration-search-page *ngIf="showDiscoverFilters"
                               [sideBarWidth]="3"
                               [showViewModes]="false"
@@ -14,9 +14,9 @@
 <ds-suggestions-popup></ds-suggestions-popup>
 
 <ng-template #homeContent>
-  <ds-search-form [inPlaceSearch]="false"
+  <!--<ds-search-form [inPlaceSearch]="false"
                          [searchPlaceholder]="'home.search-form.placeholder' | translate">
-  </ds-search-form>
+  </ds-search-form>-->
   <ds-top-level-community-list></ds-top-level-community-list>
   <ds-recent-item-list *ngIf="recentSubmissionspageSize>0"></ds-recent-item-list>
 </ng-template>
