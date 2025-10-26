@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { HomeCoarComponent } from '../../../../app/home-page/home-coar/home-coar.component';
+import { HomeMapComponent } from '../../../../app/home-page/home-map/home-map.component';
 import { ThemedHomeNewsComponent } from '../../../../app/home-page/home-news/themed-home-news.component';
 import { HomePageComponent as BaseComponent } from '../../../../app/home-page/home-page.component';
 import { RecentItemListComponent } from '../../../../app/home-page/recent-item-list/recent-item-list.component';
@@ -24,7 +25,7 @@ import { PageWithSidebarComponent } from '../../../../app/shared/sidebar/page-wi
   // templateUrl: './home-page.component.html'
   templateUrl: '../../../../app/home-page/home-page.component.html',
   standalone: true,
-  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent],
+  imports: [ThemedHomeNewsComponent, NgTemplateOutlet, NgIf, ThemedSearchFormComponent, ThemedTopLevelCommunityListComponent, RecentItemListComponent, AsyncPipe, TranslateModule, NgClass, SuggestionsPopupComponent, ThemedConfigurationSearchPageComponent, PageWithSidebarComponent, HomeCoarComponent, HomeMapComponent],
 })
 export class HomePageComponent extends BaseComponent {
 

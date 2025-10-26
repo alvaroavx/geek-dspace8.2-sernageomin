@@ -1,5 +1,5 @@
 <ds-home-coar></ds-home-coar>
-<!--<ds-home-news></ds-home-news>-->
+
 <ds-configuration-search-page *ngIf="showDiscoverFilters"
                               [sideBarWidth]="3"
                               [showViewModes]="false"
@@ -8,15 +8,20 @@
                               [showScopeSelector]="false">
   <ng-container searchContentTop *ngTemplateOutlet="homeContent"></ng-container>
 </ds-configuration-search-page>
+
 <div *ngIf="!showDiscoverFilters" class="container">
   <ng-container *ngTemplateOutlet="homeContent"></ng-container>
 </div>
+
 <ds-suggestions-popup></ds-suggestions-popup>
 
 <ng-template #homeContent>
-  <!--<ds-search-form [inPlaceSearch]="false"
+  <ds-home-map></ds-home-map>
+  <!--
+  <ds-search-form [inPlaceSearch]="false"
                          [searchPlaceholder]="'home.search-form.placeholder' | translate">
-  </ds-search-form>-->
+  </ds-search-form>
   <ds-top-level-community-list></ds-top-level-community-list>
-  <ds-recent-item-list *ngIf="recentSubmissionspageSize>0"></ds-recent-item-list>
+  <ds-recent-item-list *ngIf="recentSubmissionspageSize>0"></ds-recent-item-list>-->
+  <!--<ds-home-news></ds-home-news>-->
 </ng-template>

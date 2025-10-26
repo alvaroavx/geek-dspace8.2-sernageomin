@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { HomeNewsComponent as BaseComponent } from '../../../../../app/home-page/home-news/home-news.component';
+import { ThemedSearchNavbarComponent } from '../../../../../app/search-navbar/themed-search-navbar.component';
 import { SearchNavbarComponent } from '../../search-navbar/search-navbar.component';
 
 @Component({
@@ -7,7 +9,7 @@ import { SearchNavbarComponent } from '../../search-navbar/search-navbar.compone
   styleUrls: ['./home-news.component.scss'],
   templateUrl: './home-news.component.html',
   standalone: true,
-  imports: [SearchNavbarComponent],
+  imports: [ThemedSearchNavbarComponent, SearchNavbarComponent],
 })
 
 /**

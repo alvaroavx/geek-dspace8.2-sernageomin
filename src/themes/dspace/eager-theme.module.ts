@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { HomeMapComponent } from '../../app/home-page/home-map/home-map.component';
 import { RootModule } from '../../app/root.module';
+import { FooterComponent } from './app/footer/footer.component';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
@@ -19,7 +21,11 @@ const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
   HeaderComponent,
   HeaderNavbarWrapperComponent,
-  NavbarComponent
+  NavbarComponent,
+  FooterComponent,
+  HomeMapComponent,
+  HomeNewsComponent,
+  SearchNavbarComponent,
 ];
 
 @NgModule({
@@ -30,7 +36,7 @@ const DECLARATIONS = [
     ...DECLARATIONS,
   ],
   declarations: [
-    
+
   ],
   providers: [
     ...ENTRY_COMPONENTS.map((component) => ({ provide: component })),

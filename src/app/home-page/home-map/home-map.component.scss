@@ -1,0 +1,42 @@
+.o-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.o-title {
+    font-size: 40px;
+    line-height: 100%;
+    font-family: "gobCL-Bold",helvetica,arial,sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
+.u-mb40 {
+    margin-bottom: 40px;
+}
+
+.nav-tabs .js-btn_tabs.nav-link {
+    border: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 18px 30px 15px;
+}
+.js-btn_tabs.nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #813617;
+}
+.c-map__button.nav-link.active {
+    background-color: #813617;
+    color: #fff;
+}
+.c-map__button.nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 0;
+}
+.zoneNorth {
+    top: 0;
+}
+.zoneSouthCentral {
+    top: -490.017px;
+}
+.zoneAustral {
+    top: -980.033px;
+}

@@ -1,10 +1,14 @@
 
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
-  selector: 'ds-search-navbar-custom',
+  selector: 'ds-themed-search-navbar-custom',
   styleUrls: ['./search-navbar.component.scss'],
   templateUrl: './search-navbar.component.html',
   standalone: true,
@@ -16,7 +20,7 @@ export class SearchNavbarComponent {
   constructor(private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
       query: [''],
-      filter: ['']
+      filter: [''],
     });
   }
 
