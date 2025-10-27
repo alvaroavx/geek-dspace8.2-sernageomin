@@ -18,6 +18,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding: 18px 30px 15px;
+    font-family: gobCL, helvetica, arial, sans-serif;
 }
 .js-btn_tabs.nav-link.active, .nav-tabs .nav-item.show .nav-link {
     color: #813617;
@@ -39,4 +40,9 @@
 }
 .zoneAustral {
     top: -980.033px;
+}
+h3.o-collection__title {
+    font-family: gobCL, helvetica, arial, sans-serif;
+    color: #241513;
+    font-size: 28px;
 }
