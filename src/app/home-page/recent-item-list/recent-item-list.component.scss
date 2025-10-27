@@ -1,0 +1,15 @@
+@import "~swiper/css";
+
+.recent-swiper {
+  width: 100%;
+  padding: 1rem 0;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ds-listable-object-component-loader {
+    max-width: 260px;
+  }
+}

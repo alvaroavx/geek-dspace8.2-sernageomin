@@ -20,8 +20,10 @@
     padding: 18px 30px 15px;
     font-family: gobCL, helvetica, arial, sans-serif;
 }
-.js-btn_tabs.nav-link.active, .nav-tabs .nav-item.show .nav-link {
+.js-btn_tabs.nav-link.active, 
+.nav-tabs .nav-item.show .nav-link {
     color: #813617;
+    font-family: gobCL, helvetica, arial, sans-serif;
 }
 .c-map__button.nav-link.active {
     background-color: #813617;
