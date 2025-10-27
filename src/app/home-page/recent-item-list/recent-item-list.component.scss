@@ -1,15 +1,41 @@
-@import "~swiper/css";
-
-.recent-swiper {
+.recent-carousel-wrapper {
+  overflow: hidden;
   width: 100%;
-  padding: 1rem 0;
+  position: relative;
+}
 
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
+.recent-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  scroll-behavior: smooth;
+  animation: scroll-left 25s linear infinite;
+}
+
+.recent-slide {
+  flex: 0 0 auto;
+  width: 22%; // ≈4 elementos visibles en desktop
+  min-width: 220px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-  .ds-listable-object-component-loader {
-    max-width: 260px;
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .recent-slide {
+    width: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  .recent-slide {
+    width: 80%;
   }
 }

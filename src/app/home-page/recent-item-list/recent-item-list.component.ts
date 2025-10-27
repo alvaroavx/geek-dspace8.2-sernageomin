@@ -115,6 +115,14 @@ export class RecentItemListComponent implements OnInit, OnDestroy {
     ).pipe(
       toDSpaceObjectListRD(),
     ) as Observable<RemoteData<PaginatedList<Item>>>;
+
+    // Carrusel novedades
+    setTimeout(() => {
+      const carousel = this.elementRef.nativeElement.querySelector('.recent-carousel');
+      if (carousel) {
+        carousel.innerHTML += carousel.innerHTML;
+      }
+    }, 1000);
   }
 
   ngOnDestroy(): void {
