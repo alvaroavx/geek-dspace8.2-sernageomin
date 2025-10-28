@@ -9183,7 +9183,7 @@
   "person.orcid-tooltip.not-authenticated": "{{orcid}} (unconfirmed)",
 
   // "home.recent-submissions.head": "Recent Submissions",
-  "home.recent-submissions.head": "Envíos recientes",
+  "home.recent-submissions.head": "Novedades",
 
   // "listable-notification-object.default-message": "This object couldn't be retrieved",
   "listable-notification-object.default-message": "Este objeto no se pudo recuperar",
@@ -10430,6 +10430,7 @@
   // "metadata-export-search.submit.error.limit-exceeded": "Only the first {{limit}} items will be exported",
   // TODO New key - Add a translation
   "metadata-export-search.submit.error.limit-exceeded": "Only the first {{limit}} items will be exported",
+
 
 
 }

@@ -1,5 +1,6 @@
 import {
   AsyncPipe,
+  CommonModule,
   isPlatformBrowser,
   NgClass,
   NgFor,
@@ -14,6 +15,7 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -50,6 +52,7 @@ import {
 } from '../../shared/utils/follow-link-config.model';
 import { setPlaceHolderAttributes } from '../../shared/utils/object-list-utils';
 import { VarDirective } from '../../shared/utils/var.directive';
+import { ThemedThumbnailComponent } from '../../thumbnail/themed-thumbnail.component';
 
 @Component({
   selector: 'ds-recent-item-list',
@@ -61,7 +64,7 @@ import { VarDirective } from '../../shared/utils/var.directive';
     fadeInOut,
   ],
   standalone: true,
-  imports: [VarDirective, NgIf, NgClass, NgFor, ListableObjectComponentLoaderComponent, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
+  imports: [VarDirective, NgIf, NgClass, NgFor, ListableObjectComponentLoaderComponent, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule, CommonModule, RouterModule, ThemedThumbnailComponent],
 })
 export class RecentItemListComponent implements OnInit, OnDestroy {
   itemRD$: Observable<RemoteData<PaginatedList<Item>>>;

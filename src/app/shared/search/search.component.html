@@ -12,10 +12,12 @@
 
 <ds-page-with-sidebar *ngIf="showSidebar && (initialized$ | async)" [id]="'search-page'" [sideBarWidth]="sideBarWidth"
     [sidebarContent]="sidebarContent">
+    ESTO ES 2
     <ng-template *ngTemplateOutlet="searchContent"></ng-template>
 </ds-page-with-sidebar>
 
 <ng-template #searchContent>
+    ESTO ES 3
     <div class="row">
         <div class="col-12" *ngIf="(isXsOrSm$ | async) !== true">
             <ng-container *ngIf="searchEnabled">
@@ -53,6 +55,7 @@
 </ng-template>
 
 <ng-template #sidebarContent>
+    ESTO ES 4
     <ds-search-sidebar id="search-sidebar" *ngIf="(isXsOrSm$ | async) !== true"
                        [configurationList]="configurationList"
                        [configuration]="(currentConfiguration$ | async)"
@@ -88,6 +91,7 @@
 </ng-template>
 
 <ng-template #searchForm>
+    ESTO ES 5
     <ds-search-form id="search-form"
                     [query]="(searchOptions$ | async)?.query"
                     [scope]="(searchOptions$ | async)?.scope"
