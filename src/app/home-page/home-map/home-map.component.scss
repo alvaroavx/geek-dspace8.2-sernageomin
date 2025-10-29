@@ -28,11 +28,14 @@
 .c-map__button.nav-link.active {
     background-color: #813617;
     color: #fff;
+    font-family: gobCL, helvetica, arial, sans-serif;
 }
 .c-map__button.nav-link {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border: 0;
+    font-family: gobCL, helvetica, arial, sans-serif;
+    color: #241513;
 }
 .zoneNorth {
     top: 0;

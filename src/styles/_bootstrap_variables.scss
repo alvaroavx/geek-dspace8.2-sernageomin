@@ -46,7 +46,7 @@ $dark:      darken(#2b4e72, 17%) !default;  // Blue gray (darker)
 
 /*** OTHER BOOTSTRAP VARIABLES ***/
 
-$link-color: #1F7293 !default;
+$link-color: #813617 !default;
 $link-hover-color: darken($link-color, 15%) !default;
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
@@ -62,7 +62,7 @@ $navbar-light-toggler-icon-bg: url("data:image/svg+xml;charset=utf8,<svg+viewBox
 
 $ds-home-news-link-color: $link-color !default;
 $ds-home-news-link-hover-color: darken($ds-home-news-link-color, 15%) !default;
-$ds-breadcrumb-link-color: #003333 !default;
+$ds-breadcrumb-link-color: #813617 !default;
 $ds-breadcrumb-link-active-color: #040D11 !default;
 
 $ds-header-navbar-border-top-color: #fff !default;

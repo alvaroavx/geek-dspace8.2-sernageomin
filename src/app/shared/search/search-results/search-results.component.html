@@ -10,8 +10,6 @@
   </div>
 }
 
-SEARCH RESULTS COMPONENNT
-
 <div class="d-flex justify-content-between">
     <h1 *ngIf="!disableHeader">{{ (configuration ? configuration + '.search.results.head' : 'search.results.head') | translate }}</h1>
     <ds-search-export-csv *ngIf="showCsvExport" [total]="searchResults?.payload?.totalElements"

@@ -13,11 +13,66 @@
     padding-bottom: 0.5rem !important;
   }
 
-  .badge-secondary {
-    background-color: var(--bs-primary);
-  }
-
   h4, .h4 {
     font-size: 1.1rem
   }
+}
+
+// SERNAGEOMIN
+.btn-primary {
+    background-color: #e8e8e8;
+    color: #241513;
+    border-radius: 0
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #813617;
+    color: #fff
+}
+.btn-secondary {
+    background-color: #e8e8e8;
+    color: #241513;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: gobCL-Bold,helvetica,arial,sans-serif;
+    border: none;
+    border-radius: 0
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #813617;
+    color: #fff
+}
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.show>.btn-secondary.dropdown-toggle {
+    background-color: #813617;
+    color: #fff
+}
+.badge-primary {
+    color: #fff;
+    background-color: #7f370c
+}
+.badge-primary:hover,
+.badge-primary:focus {
+    color: #fff;
+    background-color: #eaa049
+}
+.facet-filter .badge-secondary {
+    background-color: #ed9f58;
+}
+
+.badge-info {
+  color: #fff;
+  background-color: #241513;
+}
+a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover, a:focus {
+    color: #000;
+    text-decoration: underline;
 }

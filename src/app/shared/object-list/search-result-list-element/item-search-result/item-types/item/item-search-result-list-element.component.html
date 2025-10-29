@@ -1,46 +1,102 @@
-<div class="row">
-  <div *ngIf="showThumbnails" class="col-3 col-md-2">
-    <a *ngIf="linkType !== linkTypes.None" [target]="(linkType === linkTypes.ExternalLink) ? '_blank' : '_self'" [attr.rel]="(linkType === linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
-       [routerLink]="[itemPageRoute]" class="dont-break-out" role="link" tabindex="-1">
-    <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true">
-    </ds-thumbnail>
-    </a>
-    <span *ngIf="linkType === linkTypes.None" class="dont-break-out">
-    <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true">
-    </ds-thumbnail>
-    </span>
-  </div>
-  <div [ngClass]="showThumbnails ? 'col-9' : 'col-md-12'">
-    <div class="d-flex">
-      <ds-badges *ngIf="showLabel" [object]="dso" [context]="context" [showAccessStatus]="true"></ds-badges>
-    </div>
-
-    <ds-truncatable [id]="dso.id" *ngIf="object !== undefined && object !== null">
-      <a *ngIf="linkType !== linkTypes.None" [target]="(linkType === linkTypes.ExternalLink) ? '_blank' : '_self'" [attr.rel]="(linkType === linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
-         [routerLink]="[itemPageRoute]" class="lead item-list-title dont-break-out"
-         [innerHTML]="dsoTitle" role="link" tabindex="0"></a>
-      <span *ngIf="linkType === linkTypes.None" class="lead item-list-title dont-break-out"
-            [innerHTML]="dsoTitle"></span>
-      <span class="text-muted">
-        <ds-truncatable-part [id]="dso.id" [minLines]="1">
-          <ng-container *ngIf="dso.firstMetadataValue('dc.publisher') || dso.firstMetadataValue('dc.date.issued')">
-            (<span *ngIf="dso.firstMetadataValue('dc.publisher')" class="item-list-publisher" [innerHTML]="firstMetadataValue('dc.publisher')"></span>
-            <span *ngIf="dso.firstMetadataValue('dc.publisher') && dso.firstMetadataValue('dc.date.issued')">, </span>
-          <span *ngIf="dso.firstMetadataValue('dc.date.issued')" class="item-list-date" [innerHTML]="firstMetadataValue('dc.date.issued')"></span>)
-          </ng-container>
-          <span *ngIf="dso.allMetadata(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']).length > 0" class="item-list-authors">
-            <span *ngFor="let author of allMetadataValues(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']); let last=last;">
-                <span [innerHTML]="author"><span [innerHTML]="author"></span></span>
-                <span *ngIf="!last">; </span>
-            </span>
-          </span>
-        </ds-truncatable-part>
-      </span>
-      <div *ngIf="dso.firstMetadataValue('dc.description.abstract')" class="item-list-abstract">
-        <ds-truncatable-part [id]="dso.id" [minLines]="3"><span
-          [innerHTML]="firstMetadataValue('dc.description.abstract')"></span>
-        </ds-truncatable-part>
+<div class="ds-static-div primary">
+  <div class="o-box u-gutter u-mb15">
+    <div class="row">
+      <div *ngIf="showThumbnails" class="col-3 col-md-2">
+        <a *ngIf="linkType !== linkTypes.None" [target]="(linkType === linkTypes.ExternalLink) ? '_blank' : '_self'" [attr.rel]="(linkType === linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+          [routerLink]="[itemPageRoute]" class="dont-break-out" role="link" tabindex="-1">
+        <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true">
+        </ds-thumbnail>
+        </a>
+        <span *ngIf="linkType === linkTypes.None" class="dont-break-out">
+        <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true">
+        </ds-thumbnail>
+        </span>
       </div>
-    </ds-truncatable>
+      <div [ngClass]="showThumbnails ? 'col-9' : 'col-md-12'">
+        <!--<div class="d-flex">
+          <ds-badges *ngIf="showLabel" [object]="dso" [context]="context" [showAccessStatus]="true"></ds-badges>
+        </div>-->
+        <ds-truncatable [id]="dso.id" *ngIf="object !== undefined && object !== null">
+          <a *ngIf="linkType !== linkTypes.None" [target]="(linkType === linkTypes.ExternalLink) ? '_blank' : '_self'" [attr.rel]="(linkType === linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+            [routerLink]="[itemPageRoute]" class="item-list-title dont-break-out o-resource__title"
+            [innerHTML]="dsoTitle" role="link" tabindex="0"></a>
+          <span *ngIf="linkType === linkTypes.None" class="lead item-list-title dont-break-out"
+                [innerHTML]="dsoTitle"></span>
+          <span class="text-muted">
+            <div class="o-resource__summary">
+              <dl>
+                <ng-container *ngIf="dso.allMetadata(['dc.contributor.author']).length > 0">
+                  <dt class="o-resource__term">Autor(es):</dt>
+                  <dt class="o-resource__def">
+                    <ng-container *ngFor="let author of allMetadataValues(['dc.contributor.author']); let last=last;">                  
+                      <a class="o-link o-link--tag" [routerLink]="['/search']" [queryParams]="{'f.author': author + ',equals', 'spc.page': '1'}" queryParamsHandling="merge" [innerHTML]="author">
+                          
+                      </a>
+                      <span *ngIf="!last">; </span>
+                    </ng-container>
+                  </dt>
+                </ng-container>
+                <div class="u-clearfix"></div>
+                <ng-container *ngIf="dso.allMetadata(['dc.contributor.entity']).length > 0">
+                  <dt class="o-resource__term">Autor Institucional:</dt>
+                  <dt class="o-resource__def">
+                    <ng-container *ngFor="let author of allMetadataValues(['dc.contributor.entity']); let last=last;">
+                      <a class="o-link o-link--tag" [routerLink]="['/search']" [queryParams]="{'f.institucional': firstMetadataValue('dc.contributor.entity') + ',equals', 'spc.page': '1'}" queryParamsHandling="merge" [innerHTML]="firstMetadataValue('dc.contributor.entity')">
+                              
+                      </a>
+                      <span *ngIf="!last">; </span>
+                    </ng-container>
+                  </dt>
+                </ng-container>
+                <div class="u-clearfix"></div>
+                <ng-container *ngIf="dso.firstMetadataValue('dc.date.issued')">
+                  <dt class="o-resource__term">Fecha de Publicación:</dt>
+                  <dt class="o-resource__def">
+                    <a class="o-link o-link--tag" [routerLink]="['/search']" [queryParams]="{'f.dateIssued.min': firstMetadataValue('dc.date.issued'), 'f.dateIssued.max': firstMetadataValue('dc.date.issued'), 'spc.page': '1'}" queryParamsHandling="merge" [innerHTML]="firstMetadataValue('dc.date.issued')"></a>
+                  </dt>
+                </ng-container>
+                <div class="u-clearfix"></div>
+                <ng-container *ngIf="dso.firstMetadataValue('dc.relation.ispartof')">
+                  <dt class="o-resource__term">Fuente o Serie:</dt>
+                  <dt class="o-resource__def">
+                    <a class="o-link o-link--tag" [routerLink]="['/search']" [queryParams]="{'f.tituloserie': firstMetadataValue('dc.relation.ispartof') + ',equals', 'spc.page': '1'}" queryParamsHandling="merge" [innerHTML]="firstMetadataValue('dc.relation.ispartof')"></a>
+                  </dt>
+                </ng-container>
+                <div class="u-clearfix"></div>
+                <ng-container *ngIf="dso.firstMetadataValue('dc.description.pages')">
+                  <dt class="o-resource__term">Páginas:</dt>
+                  <dt class="o-resource__def" [innerHTML]="firstMetadataValue('dc.description.pages')"></dt>
+                </ng-container>
+                <div class="u-clearfix"></div>
+                <ng-container *ngIf="dso.firstMetadataValue('dc.relation.ispartofno')">
+                  <dt class="o-resource__term">Número de Serie:</dt>
+                  <dt class="o-resource__def">
+                    <a class="o-link o-link--tag" [routerLink]="['/search']" [queryParams]="{'f.numeroserie': firstMetadataValue('dc.relation.ispartofno') + ',equals', 'spc.page': '1'}" queryParamsHandling="merge" [innerHTML]="firstMetadataValue('dc.relation.ispartofno')"></a>
+                  </dt>
+                </ng-container>
+              </dl>
+            </div>
+            
+          </span>
+          </ds-truncatable>
+          <!--
+          <div *ngIf="dso.firstMetadataValue('dc.description.abstract')" class="item-list-abstract">
+            <ds-truncatable-part [id]="dso.id" [minLines]="3"><span
+              [innerHTML]="firstMetadataValue('dc.description.abstract')"></span>
+            </ds-truncatable-part>
+          </div>
+          <ng-container *ngIf="dso.firstMetadataValue('dc.publisher') || dso.firstMetadataValue('dc.date.issued')">
+              (<span *ngIf="dso.firstMetadataValue('dc.publisher')" class="item-list-publisher" [innerHTML]="firstMetadataValue('dc.publisher')"></span>
+              <span *ngIf="dso.firstMetadataValue('dc.publisher') && dso.firstMetadataValue('dc.date.issued')">, </span>
+            <span *ngIf="dso.firstMetadataValue('dc.date.issued')" class="item-list-date" [innerHTML]="firstMetadataValue('dc.date.issued')"></span>)
+            </ng-container>
+            <span *ngIf="dso.allMetadata(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']).length > 0" class="item-list-authors">
+              <span *ngFor="let author of allMetadataValues(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']); let last=last;">
+                  <span [innerHTML]="author"><span [innerHTML]="author"></span></span>
+                  <span *ngIf="!last">; </span>
+              </span>
+            </span>-->
+      </div>
+    </div>
   </div>
 </div>

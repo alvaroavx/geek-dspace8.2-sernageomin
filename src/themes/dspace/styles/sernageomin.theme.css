@@ -1407,6 +1407,7 @@ body>ds-app>ds-themed-root>ds-root>div>div>main>div>ds-themed-item-page>ds-item-
 }
 .o-resource__term {
     display: inline-block;
+    font-weight: 400;
 }
 .o-resource__def {
     font-weight: 700;

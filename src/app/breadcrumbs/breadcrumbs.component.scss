@@ -23,9 +23,10 @@ li.breadcrumb-item {
 }
 
 li.breadcrumb-item {
-    a {
-        color: var(--ds-breadcrumb-link-color);
-    }
+  font-family: gobCL, helvetica, arial, sans-serif;
+  a {
+      color: #813617;
+  }
 }
 
 li.breadcrumb-item.active {

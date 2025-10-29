@@ -5012,7 +5012,7 @@
   "menu.section.browse_community_by_title": "Por titulo",
 
   // "menu.section.browse_global": "All of DSpace",
-  "menu.section.browse_global": "Todo DSpace",
+  "menu.section.browse_global": "Todo",
 
   // "menu.section.browse_global_by_author": "By Author",
   "menu.section.browse_global_by_author": "Por autor",
@@ -5376,7 +5376,7 @@
   "notification.suggestion.please": "Por favor",
 
   // "nav.browse.header": "All of DSpace",
-  "nav.browse.header": "Todo DSpace",
+  "nav.browse.header": "Todo",
 
   // "nav.community-browse.header": "By Community",
   "nav.community-browse.header": "Por comunidad",
@@ -5680,7 +5680,7 @@
   "pagination.options.description": "Opciones de paginación",
 
   // "pagination.results-per-page": "Results Per Page",
-  "pagination.results-per-page": "Resultados por página",
+  "pagination.results-per-page": "Resultados/página",
 
   // "pagination.showing.detail": "{{ range }} of {{ total }}",
   "pagination.showing.detail": "{{ range }} de {{ total }}",
@@ -7086,7 +7086,7 @@
   "search.form.search_dspace": "Todo el repositorio",
 
   // "search.form.scope.all": "All of DSpace",
-  "search.form.scope.all": "Todo DSpace",
+  "search.form.scope.all": "Todo",
 
   // "search.results.head": "Search Results",
   "search.results.head": "Resultados de la búsqueda",
@@ -7125,7 +7125,7 @@
   "search.sidebar.results": "resultados",
 
   // "search.sidebar.settings.rpp": "Results per page",
-  "search.sidebar.settings.rpp": "resultados por página",
+  "search.sidebar.settings.rpp": "Resultados/página",
 
   // "search.sidebar.settings.sort-by": "Sort By",
   "search.sidebar.settings.sort-by": "Ordenar por",
@@ -10431,6 +10431,7 @@
   // TODO New key - Add a translation
   "metadata-export-search.submit.error.limit-exceeded": "Only the first {{limit}} items will be exported",
 
+  "search.filters.filter.access_status.head": "Nivel de acceso",
 
 
 }
