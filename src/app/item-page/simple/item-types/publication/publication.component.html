@@ -73,17 +73,17 @@
           [metadataFields]="['dc.contributor.author', 'dc.creator']"
           [label]="'relationships.isAuthorOf' | translate">
         </ds-metadata-representation-list>
-        <!-- dc.fecha -->
-        <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
-        <!-- AUTOR INSTITUCIONAL (linkea a búsqueda por institucional) 
+
+        <!-- AUTOR INSTITUCIONAL (linkea a búsqueda por institucional) -->
         <ds-item-page-uri-field
           [item]="object"
           [label]="'Autor Institucional'"
-          [fields]="['dc.contributor.entity']"
+          [fields]="['dc.contributor.entity']">
+        </ds-item-page-uri-field>
+        <!--  
           [path]="'/search?query=&f.institucional='"
-          [suffix]="',equals&spc.page=1'">
-        </ds-item-page-uri-field>-->
-
+          [suffix]="',equals&spc.page=1'"
+        -->
         <!-- LUGAR DE EDICIÓN -->
         <ds-generic-item-page-field
           [item]="object"
@@ -98,15 +98,17 @@
           [fields]="['dc.relation.ispartof']">
         </ds-generic-item-page-field>
 
-        <!-- AÑO / VOL / NÚM (link a búsqueda por volnodate) 
+        <!-- AÑO / VOL / NÚM (link a búsqueda por volnodate) -->
         <ds-item-page-uri-field
           [item]="object"
           [label]="'Año, Volumen y Número'"
           [fields]="['dc.relation.volnodate']"
+          [separator]="' -'">
+        </ds-item-page-uri-field>
+        <!-- 
           [path]="'/search?f.volnodate='"
           [suffix]="',equals&spc.page=1'"
-          [separator]="' -'">
-        </ds-item-page-uri-field>-->
+         -->
 
         <!-- NÚMERO DE SERIE -->
         <ds-generic-item-page-field
@@ -129,15 +131,17 @@
           [fields]="['dc.escala','dc.escala.other']">
         </ds-generic-item-page-field>
 
-        <!-- REGIÓN (link a búsqueda por región) 
+        <!-- REGIÓN (link a búsqueda por región) -->
         <ds-item-page-uri-field
           [item]="object"
           [label]="'Región'"
           [fields]="['dc.coverage.spatial']"
+          [separator]="' -'">
+        </ds-item-page-uri-field>
+        <!-- 
           [path]="'/search?f.region='"
           [suffix]="',equals&spc.page=1'"
-          [separator]="' -'">
-        </ds-item-page-uri-field>-->
+         -->
 
         <!-- FECHA (si tienes el específico, úsalo; si no, usa genérico) -->
         <!-- Opción A: componente específico de fecha -->
@@ -154,6 +158,7 @@
           [separator]="'; '">
         </ds-generic-item-page-field>
         -->
+        <!--  -->
 
         <!-- DESCRIPCIÓN FÍSICA -->
         <ds-generic-item-page-field
@@ -184,15 +189,17 @@
           [fields]="['dc.publisher']">
         </ds-generic-item-page-field>
 
-        <!-- MATERIA (link a búsqueda por materia) 
+        <!-- MATERIA (link a búsqueda por materia) -->
         <ds-item-page-uri-field
           [item]="object"
           [label]="'Materia'"
           [fields]="['dc.subject.spanish','dc.subject']"
+          [separator]="' -'">
+        </ds-item-page-uri-field>
+        <!--
           [path]="'/search?query=&f.subject='"
           [suffix]="',equals&spc.page=1'"
-          [separator]="' -'">
-        </ds-item-page-uri-field>-->
+        -->
 
         <!-- DESCRIPCIÓN GENERAL -->
         <ds-generic-item-page-field
@@ -255,54 +262,12 @@
           [label]="'relationships.isJournalIssueOf' | translate">
         </ds-related-items>
 
-        <!-- OLD 
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['journal.title']"
-          [label]="'publication.page.journal-title'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.publisher']"
-          [label]="'publication.page.publisher'">
-        </ds-generic-item-page-field>
-        <ds-item-page-abstract-field [item]="object"></ds-item-page-abstract-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.description']"
-          [label]="'publication.page.description'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.subject']"
-          [separator]="', '"
-          [label]="'item.page.subject'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.identifier.citation']"
-          [label]="'item.page.citation'">
-        </ds-generic-item-page-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['dc.identifier.uri']"
-          [label]="'item.page.uri'">
-        </ds-item-page-uri-field>
-        <ds-item-page-collections [item]="object"></ds-item-page-collections>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['coar.notify.endorsedBy']"
-          [label]="'item.page.endorsement'">
-        </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isReviewedBy']"
-          [label]="'item.page.review'">
-        </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isSupplementedBy']"
-          [label]="'item.page.supplemented'">
-        </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isReferencedBy']"
-          [label]="'item.page.referenced'">
-        </ds-item-page-uri-field>
-      -->
         <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
         <div>
-          <a class="btn btn-outline-primary" role="button" [routerLink]="[itemPageRoute + '/full']" tabindex="0">
+          <a class="btn btn-outline-primary" 
+            role="button" 
+            [routerLink]="['/entities/publication', object.uuid, 'full']"
+            tabindex="0">
             <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
           </a>
         </div>
