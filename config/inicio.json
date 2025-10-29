@@ -1,0 +1,17 @@
+{
+    "apps": [
+        {
+           "name": "dspace-ui",
+           "cwd": "/dspace/geek-dspace8.2-sernageomin",
+           "script": "dist/server/main.js",
+           "node_args"   : "--harmony",
+           "node_args": "--max_old_space_size=4096",
+           "instances": "6",
+           "exec_mode": "cluster",
+           "env": {
+              "NODE_ENV": "production"
+           },
+	   "max_memory_restart": "8192"
+        }
+    ]
+}
