@@ -5,6 +5,7 @@ import {
 import {
   ChangeDetectionStrategy,
   Component,
+  OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -62,4 +63,65 @@ import { ItemComponent } from '../shared/item.component';
     ItemPageCcLicenseFieldComponent,
   ],
 })
-export class UntypedItemComponent extends ItemComponent {}
+export class UntypedItemComponent extends ItemComponent implements OnInit {
+  qrCodeUrl: string;
+  currentUrl: string;
+  fullUrl: string;
+  editMetadata: string;
+  format = 'sernageomin';
+
+  private readonly isBrowser =
+    typeof window !== 'undefined' && typeof document !== 'undefined';
+
+  ngOnInit(): void {
+    if (!this.isBrowser) {return;}
+
+    this.generateQRCodeUrl();
+    this.currentUrl = window.location.href;
+    this.fullUrl = window.location.pathname + '/full';
+    this.editMetadata = window.location.pathname + '/edit/metadata';
+  }
+
+  generateQRCodeUrl(): void {
+    if (!this.isBrowser) {return;}
+    const currentUrl = encodeURIComponent(window.location.href);
+    this.qrCodeUrl =
+      `https://quickchart.io/qr?text=${currentUrl}&dark=000000&size=100&centerImageUrl=` +
+      `https://clientes.infodi.cl/sernageomin/imagenes/avatar.png`;
+  }
+
+  onFormatChange(event: any): void {
+    this.format = event?.target?.value ?? this.format;
+  }
+
+  getUriValue(): string {
+    const md = (this as any).object?.metadata?.['dc.identifier.uri'];
+    return Array.isArray(md) && md[0]?.value ? md[0].value : '';
+  }
+
+  copyToClipboard(): void {
+    if (!this.isBrowser) {return;}
+    const el = document.getElementById('uriField') as HTMLInputElement | null;
+    if (!el) {return;}
+
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(el.value).then(
+        () => alert('URI copiada: ' + el.value),
+        () => this.fallbackCopy(el),
+      );
+    } else {
+      this.fallbackCopy(el);
+    }
+  }
+
+  private fallbackCopy(input: HTMLInputElement) {
+    try {
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert('URI copiada: ' + input.value);
+    } catch {
+      return;
+    }
+  }
+}

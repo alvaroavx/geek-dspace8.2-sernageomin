@@ -2,97 +2,278 @@
 
 <div class="row" *ngIf="iiifEnabled">
   <div class="col-12">
-    <ds-mirador-viewer id="iiif-viewer"
-                   [object]="object"
-                   [searchable]="iiifSearchEnabled"
-                   [query]="iiifQuery$ | async">
+    <ds-mirador-viewer  id="iiif-viewer"
+                        [object]="object"
+                        [searchable]="iiifSearchEnabled"
+                        [query]="iiifQuery$ | async">
     </ds-mirador-viewer>
   </div>
 </div>
 
 <div class="o-box">
   <div class="u-gutterx2">
+    <!-- TITULO -->
     <div class="d-flex flex-row">
       <ds-item-page-title-field [item]="object" class="mr-auto">
       </ds-item-page-title-field>
       <ds-dso-edit-menu></ds-dso-edit-menu>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-4">
+      <!-- BARRA LATERAL -->
+      <div class="col-xs-12 col-md-3">
+        <!-- thumbnail -->
         <ng-container *ngIf="!(mediaViewer.image || mediaViewer.video)">
           <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
             <ds-thumbnail [thumbnail]="object?.thumbnail | async"></ds-thumbnail>
           </ds-metadata-field-wrapper>
         </ng-container>
+        <!-- qr -->
+        <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" class="imagenqr">
+        <!-- rrss -->
+        <div class="o-shared"><span class="o-shared__text">Compartir en:</span>
+          <div class="o-shared__links">
+                          <a target="_blank" class="o-shared__link" [href]="'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl">
+              <span class="o-shared__icon">
+                <i class="ico-facebook"></i>
+              </span>
+            </a>
+            <a target="_blank" class="o-shared__link" [href]="'http://twitter.com/home?status=' + currentUrl">
+              <span class="o-shared__icon">
+                <i class="fa-brands fa-x-twitter"></i>
+              </span>
+            </a>
+            <a target="_blank" class="o-shared__link" [href]="'http://www.linkedin.com/shareArticle?url=' + currentUrl">
+              <span class="o-shared__icon">
+                <i class="ico-linkedin"></i>
+              </span>
+            </a>
+            <a target="_blank" class="o-shared__link" [href]="'https://api.whatsapp.com/send?text=' + currentUrl">
+              <span class="o-shared__icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </span>
+            </a>
+            <a target="_blank" class="o-shared__link" [href]="'mailto:?subject=&amp;body=' + currentUrl">
+              <span class="o-shared__icon">
+                <i class="ico-email"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="u-clearfix u-mt10 u-mb10"></div>
+      </div>
+      <!-- CONTENIDO CENTRAL -->
+      <div class="col-xs-12 col-md-8">
         <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
           <ds-media-viewer [item]="object"></ds-media-viewer>
         </div>
-        <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
-        <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
+        <!-- dc.autores -->
         <ds-metadata-representation-list class="ds-item-page-mixed-author-field"
           [parentItem]="object"
           [itemType]="'Person'"
           [metadataFields]="['dc.contributor.author', 'dc.creator']"
           [label]="'relationships.isAuthorOf' | translate">
         </ds-metadata-representation-list>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['journal.title']"
-          [label]="'item.page.journal-title'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['journal.identifier.issn']"
-          [label]="'item.page.journal-issn'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['journalvolume.identifier.name']"
-          [label]="'item.page.volume-title'">
-        </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.publisher']"
-          [label]="'item.page.publisher'">
-        </ds-generic-item-page-field>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <ds-item-page-abstract-field [item]="object"></ds-item-page-abstract-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.description']"
-          [label]="'item.page.description'">
+
+        <!-- AUTOR INSTITUCIONAL (linkea a búsqueda por institucional) -->
+        <ds-item-page-uri-field
+          [item]="object"
+          [label]="'Autor Institucional'"
+          [fields]="['dc.contributor.entity']">
+        </ds-item-page-uri-field>
+        <!--  
+          [path]="'/search?query=&f.institucional='"
+          [suffix]="',equals&spc.page=1'"
+        -->
+        <!-- LUGAR DE EDICIÓN -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Lugar de Edición'"
+          [fields]="['dc.placeofedition']">
         </ds-generic-item-page-field>
 
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.subject']"
-          [separator]="', '"
-          [label]="'item.page.subject'">
+        <!-- FUENTE O SERIE -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Fuente o Serie'"
+          [fields]="['dc.relation.ispartof']">
         </ds-generic-item-page-field>
-        <ds-generic-item-page-field [item]="object"
-          [fields]="['dc.identifier.citation']"
-          [label]="'item.page.citation'">
+
+        <!-- AÑO / VOL / NÚM (link a búsqueda por volnodate) -->
+        <ds-item-page-uri-field
+          [item]="object"
+          [label]="'Año, Volumen y Número'"
+          [fields]="['dc.relation.volnodate']"
+          [separator]="' -'">
+        </ds-item-page-uri-field>
+        <!-- 
+          [path]="'/search?f.volnodate='"
+          [suffix]="',equals&spc.page=1'"
+         -->
+
+        <!-- NÚMERO DE SERIE -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Número de serie'"
+          [fields]="['dc.relation.ispartofno']">
         </ds-generic-item-page-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['dc.identifier.uri']"
-          [label]="'item.page.uri'">
+
+        <!-- PÁGINAS -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Páginas'"
+          [fields]="['dc.description.pages']">
+        </ds-generic-item-page-field>
+
+        <!-- ESCALA (si tu repos usa variantes, deja ambas) -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Escala'"
+          [fields]="['dc.escala','dc.escala.other']">
+        </ds-generic-item-page-field>
+
+        <!-- REGIÓN (link a búsqueda por región) -->
+        <ds-item-page-uri-field
+          [item]="object"
+          [label]="'Región'"
+          [fields]="['dc.coverage.spatial']"
+          [separator]="' -'">
         </ds-item-page-uri-field>
-        <ds-item-page-collections [item]="object"></ds-item-page-collections>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['coar.notify.endorsedBy']"
-          [label]="'item.page.endorsement'">
+        <!-- 
+          [path]="'/search?f.region='"
+          [suffix]="',equals&spc.page=1'"
+         -->
+
+        <!-- FECHA (si tienes el específico, úsalo; si no, usa genérico) -->
+        <!-- Opción A: componente específico de fecha -->
+        <ds-item-page-date-field
+          [item]="object">
+        </ds-item-page-date-field>
+
+        <!-- Opción B (alternativa): genérico apuntando a issued/created -->
+        <!--
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Fecha'"
+          [fields]="['dc.date.issued','dc.date.created']"
+          [separator]="'; '">
+        </ds-generic-item-page-field>
+        -->
+        <!--  -->
+
+        <!-- DESCRIPCIÓN FÍSICA -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Descripción física'"
+          [fields]="['dc.physicaldescription']">
+        </ds-generic-item-page-field>
+
+        <!-- RESUMEN / ABSTRACT -->
+        <!-- Opción A: componente específico -->
+        <ds-item-page-abstract-field
+          [item]="object">
+        </ds-item-page-abstract-field>
+
+        <!-- Opción B: genérico (por si tu abstract está en otra key) -->
+        <!--
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Resumen'"
+          [fields]="['dc.description.abstract']">
+        </ds-generic-item-page-field>
+        -->
+
+        <!-- EDITORIAL / PUBLISHER 'Editor/Editorial' -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'publication.page.publisher'" 
+          [fields]="['dc.publisher']">
+        </ds-generic-item-page-field>
+
+        <!-- MATERIA (link a búsqueda por materia) -->
+        <ds-item-page-uri-field
+          [item]="object"
+          [label]="'Materia'"
+          [fields]="['dc.subject.spanish','dc.subject']"
+          [separator]="' -'">
         </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isReviewedBy']"
-          [label]="'item.page.review'">
-        </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isSupplementedBy']"
-          [label]="'item.page.supplemented'">
-        </ds-item-page-uri-field>
-        <ds-item-page-uri-field [item]="object"
-          [fields]="['datacite.relation.isReferencedBy']"
-          [label]="'item.page.referenced'">
-        </ds-item-page-uri-field>
-        <ds-item-page-cc-license-field [item]="object" [variant]="'full'">
-        </ds-item-page-cc-license-field>
+        <!--
+          [path]="'/search?query=&f.subject='"
+          [suffix]="',equals&spc.page=1'"
+        -->
+
+        <!-- DESCRIPCIÓN GENERAL -->
+        <ds-generic-item-page-field
+          [item]="object"
+          [label]="'Descripción'"
+          [fields]="['dc.description']">
+        </ds-generic-item-page-field>
+
+        <!-- URI (campo + botón copiar) -->
+        <div class="uri d-flex align-items-center gap-2">
+          <ds-generic-item-page-field
+            [item]="object"
+            [label]="'URI'"
+            [fields]="['dc.identifier.uri']"
+            [separator]="' -'">
+          </ds-generic-item-page-field>
+          <input id="uriField" type="text" [value]="getUriValue()" readonly>
+          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
+
+          <!-- Si ya tienes los métodos en tu TS, deja esto:
+          <input id="uriField" type="text" [value]="getUriValue()" readonly>
+          <button title="Copiar URI" (click)="copyToClipboard()">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+          -->
+
+          <!-- Alternativa simple sin TS extra: 
+          <input id="uriField" type="text"
+                [value]="object?.firstMetadataValue('dc.identifier.uri')"
+                readonly>
+          <button title="Copiar URI"
+                  (click)="navigator.clipboard?.writeText(object?.firstMetadataValue('dc.identifier.uri') || '')">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+          -->
+        </div>
+
+        <br>
+
+        <!-- CITA BIBLIOGRÁFICA (condicional) -->
+        <div *ngIf="object?.allMetadata('dc.identifier.citation')?.length" class="citabibliografica">
+          <h5>Cita Bibliográfica</h5>
+          <ds-generic-item-page-field
+            [item]="object"
+            [fields]="['dc.identifier.citation']">
+          </ds-generic-item-page-field>
+          <input id="uriField" type="text" [value]="getUriValue()" readonly>
+          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
+        </div>
+
+        <!--
+        <ds-related-items
+          [parentItem]="object"
+          [relationType]="'isProjectOfPublication'"
+          [label]="'relationships.isProjectOf' | translate">
+        </ds-related-items>
+        <ds-related-items
+          [parentItem]="object"
+          [relationType]="'isOrgUnitOfPublication'"
+          [label]="'relationships.isOrgUnitOf' | translate">
+        </ds-related-items>
+        <ds-related-items
+          [parentItem]="object"
+          [relationType]="'isJournalIssueOfPublication'"
+          [label]="'relationships.isJournalIssueOf' | translate">
+        </ds-related-items>
+        -->
+
+        <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
         <div>
-          <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button" tabindex="0">
+          <a class="btn btn-outline-primary" 
+            role="button" 
+            [routerLink]="['/entities/publication', object.uuid, 'full']"
+            tabindex="0">
             <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
           </a>
         </div>

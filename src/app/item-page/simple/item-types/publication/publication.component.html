@@ -216,6 +216,8 @@
             [fields]="['dc.identifier.uri']"
             [separator]="' -'">
           </ds-generic-item-page-field>
+          <input id="uriField" type="text" [value]="getUriValue()" readonly>
+          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
 
           <!-- Si ya tienes los métodos en tu TS, deja esto:
           <input id="uriField" type="text" [value]="getUriValue()" readonly>
@@ -244,6 +246,8 @@
             [item]="object"
             [fields]="['dc.identifier.citation']">
           </ds-generic-item-page-field>
+          <input id="uriField" type="text" [value]="getUriValue()" readonly>
+          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
         </div>
 
         <ds-related-items
