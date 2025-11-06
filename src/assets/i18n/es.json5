@@ -3601,5 +3601,11 @@
   "live-region.ordering.dropped": "{{ itemName }}, dropped at position {{ index }} of {{ length }}.",
   "dynamic-form-array.sortable-list.label": "Sortable list",
   "metadata-export-search.submit.error.limit-exceeded": "Only the first {{limit}} items will be exported",
-  "search.filters.filter.access_status.head": "Nivel de acceso"
+  "search.filters.filter.access_status.head": "Nivel de acceso",
+  "info.about": "Acerca de este repositorio",
+  "info.about.title": "Acerca de este repositorio",
+  "info.terms": "Condiciones de Uso",
+  "info.terms.title": "Condiciones de Uso",
+  "info.terms.breadcrumbs": "Condiciones de Uso",
+  "info.about.breadcrumbs": "Acerca de",
 }

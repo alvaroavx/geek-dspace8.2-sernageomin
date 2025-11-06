@@ -6,6 +6,10 @@ export const FEEDBACK_PATH = 'feedback';
 export const COAR_NOTIFY_SUPPORT = 'coar-notify-support';
 export const ACCESSIBILITY_SETTINGS_PATH = 'accessibility';
 
+// SERNAGEOMIN
+export const ABOUT_PATH = 'acerca';
+export const TERMS_PATH = 'condiciones';
+
 export function getEndUserAgreementPath() {
   return getSubPath(END_USER_AGREEMENT_PATH);
 }
@@ -24,6 +28,14 @@ export function getCOARNotifySupportPath(): string {
 
 export function getAccessibilitySettingsPath() {
   return getSubPath(ACCESSIBILITY_SETTINGS_PATH);
+}
+
+// SERNAGEOMIN
+export function getAboutPath() {
+  return getSubPath(ABOUT_PATH);
+}
+export function getTermsPath() {
+  return getSubPath(TERMS_PATH);
 }
 
 function getSubPath(path: string) {

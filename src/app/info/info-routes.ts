@@ -4,6 +4,8 @@ import {
 } from '@angular/router';
 
 import { environment } from '../../environments/environment';
+import { AcercaComponent } from '../../themes/dspace/app/info/acerca/acerca.component';
+import { CondicionesComponent } from '../../themes/dspace/app/info/condiciones/condiciones.component';
 import { i18nBreadcrumbResolver } from '../core/breadcrumbs/i18n-breadcrumb.resolver';
 import { notifyInfoGuard } from '../core/coar-notify/notify-info/notify-info.guard';
 import { feedbackGuard } from '../core/feedback/feedback.guard';
@@ -12,15 +14,16 @@ import { AccessibilitySettingsComponent } from './accessibility-settings/accessi
 import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end-user-agreement.component';
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import {
+  ABOUT_PATH,
   ACCESSIBILITY_SETTINGS_PATH,
   COAR_NOTIFY_SUPPORT,
   END_USER_AGREEMENT_PATH,
   FEEDBACK_PATH,
   PRIVACY_PATH,
+  TERMS_PATH,
 } from './info-routing-paths';
 import { NotifyInfoComponent } from './notify-info/notify-info.component';
 import { ThemedPrivacyComponent } from './privacy/themed-privacy.component';
-
 
 export const ROUTES: Routes = [
   {
@@ -60,4 +63,17 @@ export const ROUTES: Routes = [
       breadcrumbKey: 'info.coar-notify-support',
     },
   } : undefined,
+  // SERNAGEOMIN
+  {
+    path: ABOUT_PATH,
+    component: AcercaComponent,
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.about.title', breadcrumbKey: 'info.about' },
+  },
+  {
+    path: TERMS_PATH,
+    component: CondicionesComponent,
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.terms.title', breadcrumbKey: 'info.terms' },
+  },
 ].filter((route: Route) => hasValue(route));

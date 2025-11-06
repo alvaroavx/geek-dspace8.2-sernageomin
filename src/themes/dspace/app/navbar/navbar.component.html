@@ -7,8 +7,8 @@
     [ngClass]="(isMobile$ | async) ? 'navbar-nav-mobile' : 'navbar-nav-desktop'">
   <a href="http://www.sernageomin.cl/" target="_blank" class="ds-menu-item">SERNAGEOMIN</a>
   <a href="https://catalogobiblioteca.sernageomin.cl/" target="_blank" class="ds-menu-item">Biblioteca</a>
-  <a routerLink="/info/acerca" class="ds-menu-item">Acerca de este repositorio</a>
-  <a routerLink="/info/condiciones" class="ds-menu-item">Condiciones de Uso</a>
+  <a href="/info/acerca" class="ds-menu-item">Acerca de este repositorio</a>
+  <a href="/info/condiciones" class="ds-menu-item">Condiciones de Uso</a>
   <ng-container *ngFor="let section of (sections | async)">
     <ng-container
       *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
