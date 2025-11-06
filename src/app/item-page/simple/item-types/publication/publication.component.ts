@@ -78,6 +78,11 @@ export class PublicationComponent extends ItemComponent implements OnInit {
     return Array.isArray(md) && md[0]?.value ? md[0].value : '';
   }
 
+  getCitationValue(): string {
+    const md = (this as any).object?.metadata?.['dc.identifier.citation'];
+    return Array.isArray(md) && md[0]?.value ? md[0].value : '';
+  }
+
   copyToClipboard(): void {
     if (!this.isBrowser) {return;}
     const el = document.getElementById('uriField') as HTMLInputElement | null;
@@ -86,6 +91,21 @@ export class PublicationComponent extends ItemComponent implements OnInit {
     if (navigator?.clipboard?.writeText) {
       navigator.clipboard.writeText(el.value).then(
         () => alert('URI copiada: ' + el.value),
+        () => this.fallbackCopy(el),
+      );
+    } else {
+      this.fallbackCopy(el);
+    }
+  }
+
+  copyCitationToClipboard(): void {
+    if (!this.isBrowser) {return;}
+    const el = document.getElementById('citationField') as HTMLInputElement | null;
+    if (!el) {return;}
+
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(el.value).then(
+        () => alert('Cita copiada: ' + el.value),
         () => this.fallbackCopy(el),
       );
     } else {

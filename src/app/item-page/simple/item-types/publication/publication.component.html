@@ -241,13 +241,11 @@
 
         <!-- CITA BIBLIOGRÁFICA (condicional) -->
         <div *ngIf="object?.allMetadata('dc.identifier.citation')?.length" class="citabibliografica">
-          <h5>Cita Bibliográfica</h5>
-          <ds-generic-item-page-field
-            [item]="object"
-            [fields]="['dc.identifier.citation']">
-          </ds-generic-item-page-field>
-          <input id="uriField" type="text" [value]="getUriValue()" readonly>
-          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
+          <h5>Referencia bibliográfica con norma SERNAGEOMIN</h5>
+          <div class="uri d-flex align-items-center gap-2">
+            <input id="citationField" type="text" [value]="getCitationValue()" readonly style="flex: 1;">
+            <button title="Copiar cita" (click)="copyCitationToClipboard()"><i class="fa-solid fa-copy"></i></button>
+          </div>
         </div>
 
         <ds-related-items

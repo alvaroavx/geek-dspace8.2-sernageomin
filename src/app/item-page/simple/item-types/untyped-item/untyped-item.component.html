@@ -241,14 +241,19 @@
 
         <!-- CITA BIBLIOGRÁFICA (condicional) -->
         <div *ngIf="object?.allMetadata('dc.identifier.citation')?.length" class="citabibliografica">
-          <h5>Cita Bibliográfica</h5>
-          <ds-generic-item-page-field
-            [item]="object"
-            [fields]="['dc.identifier.citation']">
-          </ds-generic-item-page-field>
-          <input id="uriField" type="text" [value]="getUriValue()" readonly>
-          <button title="Copiar URI" (click)="copyToClipboard()"><i class="fa-solid fa-copy"></i></button>
+          <h5><strong>Referencia bibliográfica con norma SERNAGEOMIN</strong></h5>
+          <div class="d-flex align-items-start gap-2">
+            <ds-generic-item-page-field
+              [item]="object"
+              [fields]="['dc.identifier.citation']"
+              style="flex: 1;">
+            </ds-generic-item-page-field>
+            <input id="citationField" type="text" [value]="getCitationValue()" readonly style="display: none;">
+            <button class="btn btn-link p-0 border-0" style="color: black;" title="Copiar cita" (click)="copyCitationToClipboard()"><i class="fa-solid fa-copy"></i></button>
+          </div>
         </div>
+
+
 
         <!--
         <ds-related-items
@@ -267,8 +272,40 @@
           [label]="'relationships.isJournalIssueOf' | translate">
         </ds-related-items>
         -->
+       
+        <!-- Línea separadora -->
+        <hr style="border: 1px solid #D6D6D6; margin: 20px 0;">
+        
+        <!-- DESCARGAR -->
+        <div class="mb-2">
+          <strong>DESCARGAR:</strong>
+        </div>
+        <!-- SECCIÓN DE ARCHIVOS -->
+        <div class="d-flex align-items-center mb-2">
+          <i class="fa-solid fa-file" style="width: 20px; text-align: center; margin-right: 8px;"></i>
+          <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
+        </div>
+        
+        <!-- ENLACES ADICIONALES GIS -->
+        <ng-container *ngIf="object?.metadata['dc.source.gis']"> 
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-layer-group" style="width: 20px; text-align: center; margin-right: 8px;"></i>
+            <a [href]="object.metadata['dc.source.gis'][0].value" target="_blank">
+              <strong>Enlace de recurso SIG</strong>
+            </a>
+          </div>
+        </ng-container>
+        
+        <!-- ENLACES ADICIONALES PG -->
+        <ng-container *ngIf="object?.metadata['dc.source.pg']">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-map-pin" style="width: 20px; text-align: center; margin-right: 8px;"></i>
+            <a [href]="object.metadata['dc.source.pg'][0].value" target="_blank">
+              <strong>Enlace a recurso PortalGeomin</strong>
+            </a>
+          </div>
+        </ng-container>
 
-        <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
         <div>
           <a class="btn btn-outline-primary" 
             role="button" 
@@ -277,6 +314,9 @@
             <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
           </a>
         </div>
+
+
+
       </div>
     </div>
   </div>
